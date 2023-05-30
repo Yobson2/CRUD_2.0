@@ -1,0 +1,46 @@
+<%- include('header'); -%>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Prénoms</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Action1</th>
+      <th>Action2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (data && data.length > 0) { %>
+      <% data.forEach(user => { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.nom %></td>
+          <td><%= user.prenom %></td>
+          <td><%= user.email %></td>
+          <td><%= user.password %></td>
+          <td><button><a href="/vue/edite?id=<%= user.id %>"onclick="confirm(' are you update the user ? ')" onclick="editeElem('<%= user.id %>','<%= user.nom %>','<%= user.prenom %>','<%= user.email %>','<%= user.password %>')">Edite</a></button></td>
+          <td><button><a href="/vue/delete?id=<%= user.id %>" onclick="confirm('voulez vous supprimer cet user ?')">Delete</a></button></td>
+        </tr>
+        
+      <% }) %>
+    <% } else { %>
+      <tr>
+        <td colspan="7">Aucune donnée disponible.</td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+<%- include('footer'); -%>
+
+<script>
+
+  function editeElem(id,nom,prenom,email,password) {
+      document.querySelector('id').value=id
+      document.querySelector('#nom').value=nom
+      document.querySelector('#prenom').value=prenom
+      document.querySelector('#password').value=password
+      document.querySelector('#email').value=email
+  }
+</script>
