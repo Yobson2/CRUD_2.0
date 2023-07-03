@@ -10,17 +10,17 @@ routers.get('/',(req,res)=>{res.render('index')})
 
 
 //crud operations
-// routers.post('/sign',(req,res)=>{
-//   console.log(req.body)
-//   const sql='INSERT INTO users SET ?'
-//     db.query(sql,req.body,(err,rs)=>{
-//         if (err) {
-//             return console.error('error: ' + err.message);
-//           }     
-//           console.log('Succed ');
-//           res.redirect('/')
-//     })
-// })
+routers.post('/sign',(req,res)=>{
+  console.log(req.body)
+  const sql='INSERT INTO users SET ?'
+    db.query(sql,req.body,(err,rs)=>{
+        if (err) {
+            return console.error('error: ' + err.message);
+          }     
+          console.log('Succed ');
+          res.redirect('/')
+    })
+})
 
 routers.get('/vue',(req,res)=>{
     const sql='SELECT * FROM users';
