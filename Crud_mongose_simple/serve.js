@@ -2,15 +2,14 @@ const express=require('express');
 const mongoose=require('mongoose');
 const session=require('express-session');
 require('dotenv').config()
+const PORT=4100;
+const connectDB = require('./db/config');
+connectDB();
 
-const port=process.env.PORT || 7000;
-
-
-// console.log('mooooo',session)
-// console.log(process.env.PORT) 
 
 /*initialisation de mon server */
 const app=express();
+
 
 app.get('/',(req,res)=>{
     res.send('bonjour')
@@ -22,7 +21,7 @@ app.get('/',(req,res)=>{
 
 //listen on port
 
-app.listen(port,()=>{
-    console.log(`server started at http://localhost/:${port}`);
+app.listen(PORT,()=>{
+    console.log(`server started at http://localhost/:${PORT}`);
     
 })
