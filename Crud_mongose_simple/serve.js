@@ -16,6 +16,7 @@ const app=express();
 
 //mildllewares
 app.use('/static', express.static('public'));
+app.use(express.static('uploads')); //lire les images qui se trouvent uploads
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 
